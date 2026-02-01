@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ReReads</title>
+    <link rel="stylesheet" href="stylehomepage.css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="homepage.html"><img src="icon.png" class="icon"></a>
+            <a href="homepage.html"style="text-decoration:none;"><h1 class="title">ReReads</h1></a>
+            <div class="search-bar" id="search-bar">
+                <input type="text" id="search" placeholder="Search for a book...">
+            </div>
+            <a href="#"><img src="list.png" alt="list" class="buylist"></a>
+            <img src="acc.png" alt="acc" class="accountphoto"></a>
+        </div>
+
+    </header>
+    
+    <div class="search-results" id="results">
+        
+    </div>
+
+    
+    <div class="catigory-container">
+
+        <h2 class="catigorytitle">Categories</h2>
+        <ul class="catigory-list">
+            <li> <button class="category-button" id="Biography">Biography</button> </li>
+            <li> <button class="category-button" id="Children">Children</button> </li>
+            <li> <button class="category-button" id="Fantasy">Fantasy</button> </li>
+            <li> <button class="category-button" id="Fiction">Fiction</button> </li>
+            <li> <button class="category-button" id="Health">Health</button> </li>
+            <li> <button class="category-button" id="History">History</button> </li>
+            <li> <button class="category-button" id="Mystery">Mystery</button> </li>
+            <li> <button class="category-button" id="Non-Fiction">Non-Fiction</button> </li>
+            <li> <button class="category-button" id="Romance">Romance</button> </li>
+            <li> <button class="category-button" id="Science">Science</button> </li>
+            <li> <button class="category-button" id="Thriller">Thriller</button> </li>
+            <li> <button class="category-button" id="Travel">Travel</button> </li>
+        </ul>
+
+    </div>
+
+    <a href="index.html" class="addbook" style="text-decoration:none;">+</a>
+    
+    <div class="books-container">
+
+    <div class="disclaimer">
+    <span class="disclaimer-icon">⚠️</span>
+    <span>
+      <strong>Disclaimer:</strong> This site is not responsible for any personal communication or exchange that occurs outside of it. 
+      Please exercise caution when dealing with other users.
+    </span>
+  </div>
+
+  <p class="description">
+    You can browse books shared by other users or upload your own to share with the community. 
+    We aim to provide a safe and easy way for people to exchange knowledge and access educational materials freely.
+  </p>
+
+      <h2 class="homepage-title">Books you may like</h2>
+        <div class="category-section">
+
+    <div class="section-header">
+        <h3>Biography</h3>
+        <button class="see-more" onclick="window.location.href='Biography.html'">See more</button>
+    </div>
+
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('biography-row')">&#10094;</button>
+        <div class="book-row" id="biography-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('biography-row')">&#10095;</button>
+    </div>
+    </div>
+
+    <div class="section-header">
+        <h3>Science</h3>
+        <button class="see-more" onclick="window.location.href='Science.html'">See more</button>
+    </div>
+
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('science-row')">&#10094;</button>
+        <div class="book-row" id="science-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('science-row')">&#10095;</button>
+    </div>
+
+    <div class="section-header">
+        <h3>Fiction</h3>
+        <button class="see-more" onclick="window.location.href='Fiction.html'">See more</button>
+    </div>
+
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('fiction-row')">&#10094;</button>
+        <div class="book-row" id="fiction-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('fiction-row')">&#10095;</button>
+    </div>
+    <div class="section-header">
+        <h3>Non-Fiction</h3>
+        <button class="see-more" onclick="window.location.href='NonFiction.html'">See more</button>
+    </div>
+    
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('non-fiction-row')">&#10094;</button>
+        <div class="book-row" id="non-fiction-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('non-fiction-row')">&#10095;</button>
+    </div>
+
+    <div class="section-header">
+        <h3>History</h3>
+        <button class="see-more" onclick="window.location.href='History.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('history-row')">&#10094;</button>
+        <div class="book-row" id="history-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('history-row')">&#10095;</button>
+    </div>
+    <div class="section-header">
+        <h3>Fantasy</h3>
+        <button class="see-more" onclick="window.location.href='Fantasy.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('fantasy-row')">&#10094;</button>
+        <div class="book-row" id="fantasy-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('fantasy-row')">&#10095;</button>
+    </div>
+    <div class="section-header">
+        <h3>Mystery</h3>
+        <button class="see-more" onclick="window.location.href='Mystery.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('mystery-row')">&#10094;</button>
+        <div class="book-row" id="mystery-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('mystery-row')">&#10095;</button>
+    </div>
+    <div class="section-header">
+        <h3>Romance</h3>
+        <button class="see-more" onclick="window.location.href='Romance.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('romance-row')">&#10094;</button>
+        <div class="book-row" id="romance-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('romance-row')">&#10095;</button>
+    </div>
+    <div class="section-header">
+        <h3>Thriller</h3>
+        <button class="see-more" onclick="window.location.href='Thriller.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('thriller-row')">&#10094;</button>
+        <div class="book-row" id="thriller-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('thriller-row')">&#10095;</button>
+    </div>
+    <div class="section-header">
+        <h3>Health</h3>
+        <button class="see-more" onclick="window.location.href='Health.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('health-row')">&#10094;</button>
+        <div class="book-row" id="health-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('health-row')">&#10095;</button>
+
+    </div>
+    <div class="section-header">
+        <h3>Travel</h3>
+        <button class="see-more" onclick="window.location.href='Travel.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('travel-row')">&#10094;</button>
+        <div class="book-row" id="travel-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('travel-row')">&#10095;</button>
+
+    </div>
+    <div class="section-header">
+        <h3>Children</h3>
+        <button class="see-more" onclick="window.location.href='Children.html'">See more</button>
+    </div>
+    <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('children-row')">&#10094;</button>
+        <div class="book-row" id="children-row"></div>
+        <button class="scroll-btn right" onclick="scrollRight('children-row')">&#10095;</button>
+    </div>
+</div>
+
+<div id="book-modal" class="book-modal">
+  <div class="book-modal-content">
+    <button id="close-book-modal" class="close-button">&times;</button>
+    <img id="modal-book-img" src="" alt="Book Image" />
+    <h2 id="modal-book-title"></h2>
+    <p id="modal-book-price"></p>
+    <p><strong>Author:</strong> <span id="modal-book-author"></span></p>
+    <p><strong>Description:</strong> <span id="modal-book-description"></span></p>
+    <p><strong>Contact:</strong> <span id="modal-book-contact"></span></p>
+  </div>
+</div>
+
+
+
+
+    
+
+    <script type="module">
+    import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js"
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js"
+    const firebaseConfig = {
+        apiKey: "AIzaSyCiD009fYi_pez3e9HSs23NOuQ-U5dYcOI",
+        authDomain: "cfe-final-project.firebaseapp.com",
+        databaseURL: "https://cfe-final-project-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "cfe-final-project",
+        storageBucket: "cfe-final-project.firebasestorage.app",
+        messagingSenderId: "424095338587",
+        appId: "1:424095338587:web:10e94a92b55c2bbf2a2f7e",
+        measurementId: "G-883F1EHM6P"
+    };
+    const app = initializeApp(firebaseConfig);
+    const pageCategory = "Biography";
+    const db = getDatabase(app);
+    let booksList = [];
+    let loadedImages = 0;
+    let theFullData = [];
+    onValue(ref(db, pageCategory + '/'), (snapData) => {
+        Object.keys(snapData.val()).forEach(function (item) {
+            booksList.push(String(item));
+        });
+        booksList.forEach(function (theBook) {
+            onValue(ref(db, pageCategory + '/' + theBook + '/Image/'), (snapData) => {
+                console.log(String(snapData.val()));
+                const theImageURL = String(snapData.val());
+                theFullData.push({ title: theBook, ImageURL: theImageURL });
+                loadedImages++;
+            })
+        });
+        if (loadedImages == booksList.length)
+            buildingFunction();
+    });
+    console.log(theFullData);
+
+    const FictionButton = document.getElementById('Fiction');
+    FictionButton.addEventListener('click', (e) => {
+        window.location.href = "Fiction.html";
+    });
+
+    const NonFictionButton = document.getElementById('Non-Fiction');
+    NonFictionButton.addEventListener('click', (e) => {
+        window.location.href = "NonFiction.html";
+    });
+
+    const ScienceButton = document.getElementById('Science');
+    ScienceButton.addEventListener('click', (e) => {
+        window.location.href = "Science.html";
+    });
+
+    const HistoryButton = document.getElementById('History');
+    HistoryButton.addEventListener('click', (e) => {
+        window.location.href = "History.html";
+    });
+
+    const BiographyButton = document.getElementById('Biography');
+    BiographyButton.addEventListener('click', (e) => {
+        window.location.href = "Biography.html";
+    });
+
+    const FantasyButton = document.getElementById('Fantasy');
+    FantasyButton.addEventListener('click', (e) => {
+        window.location.href = "Fantasy.html";
+    });
+
+    const MysteryButton = document.getElementById('Mystery');
+    MysteryButton.addEventListener('click', (e) => {
+        window.location.href = "Mystery.html";
+    });
+
+    const RomanceButton = document.getElementById('Romance');
+    RomanceButton.addEventListener('click', (e) => {
+        window.location.href = "Romance.html";
+    });
+
+    const ThrillerButton = document.getElementById('Thriller');
+    ThrillerButton.addEventListener('click', (e) => {
+        window.location.href = "Thriller.html";
+    });
+
+    const HealthButton = document.getElementById('Health');
+    HealthButton.addEventListener('click', (e) => {
+        window.location.href = "Health.html";
+    });
+
+    const TravelButton = document.getElementById('Travel');
+    TravelButton.addEventListener('click', (e) => {
+        window.location.href = "Travel.html";
+    });
+
+    const ChildrenButton = document.getElementById('Children');
+    ChildrenButton.addEventListener('click', (e) => {
+        window.location.href = "Children.html";
+    });
+
+    function buildingFunction() {
+        const itemList = document.getElementById('BooksOfCategory');
+        let counter = 0;
+        let theBooksRow = document.createElement('div');
+        theBooksRow.className = 'row'
+        theFullData.forEach(function (theBook) {
+            let itemDiv = document.createElement('div');
+            itemDiv.className = 'card';
+            const BookPicture = document.createElement('img');
+            BookPicture.src = `${theBook.ImageURL}`;
+            BookPicture.alt = "Book Picture";
+            BookPicture.style = "width:100%";
+            const BookTitle = document.createElement('button');
+            BookTitle.textContent = `${theBook.title}`;
+            BookTitle.className = 'Book-Button';
+            itemDiv.appendChild(BookPicture);
+            itemDiv.appendChild(BookTitle);
+            theBooksRow.appendChild(itemDiv);
+            counter++;
+            if (counter == 3) {
+                counter = 0;
+                itemList.appendChild(theBooksRow);
+                theBooksRow = document.createElement('row');
+                console.log("pushed");
+            }
+        });
+        if (counter > 0) {
+            counter = 0;
+            itemList.appendChild(theBooksRow);
+            theBooksRow = document.createElement('row');
+            let booksPerRow = ((window.innerWidth-720)/170);
+            console.log("pushed");
+        }
+
+    };
+
+
+
+    const categories = ['Biography', 'Science', 'Fiction', 'Non-Fiction', 'History', 'Fantasy', 'Mystery', 'Romance', 'Thriller', 'Health', 'Travel', 'Children'];
+    categories.forEach(category => {
+        const rowId = `${category.toLowerCase()}-row`;
+        onValue(ref(db, category + '/'), (snapData) => {
+            const row = document.getElementById(rowId);
+            if (!row) return;
+            row.innerHTML = '';
+            const data = snapData.val();
+            if (!data) return;
+            Object.entries(data).forEach(([bookTitle, bookData]) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                const price = bookData.Price ? `<span class="book-price">${bookData.Price}L.E</span>` : '';
+                card.innerHTML = `
+                    <img src="${bookData.Image || bookData.ImageURL || ''}" alt="${bookTitle}" style="width:120px; height:180px; border-radius:5px;">
+                    <p>${bookTitle}</p>
+                    ${price}
+                `;
+                card.style.cursor = "pointer";
+                card.addEventListener('click', function () {
+                const modal = document.getElementById('book-modal');
+                document.getElementById('modal-book-img').src = bookData.Image || bookData.ImageURL || '';
+                document.getElementById('modal-book-title').textContent = bookTitle;
+                document.getElementById('modal-book-price').textContent = bookData.Price ? bookData.Price + ' L.E' : '';
+                document.getElementById('modal-book-author').textContent = bookData.Author || 'Unknown';
+                document.getElementById('modal-book-description').textContent = bookData.Description || 'No description available.';
+                document.getElementById('modal-book-contact').textContent = bookData.Contact || 'N/A';
+
+                modal.style.display = 'flex';
+});
+
+document.getElementById('close-book-modal').addEventListener('click', () => {
+    document.getElementById('book-modal').style.display = 'none';
+});
+
+document.getElementById('book-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'book-modal') {
+        document.getElementById('book-modal').style.display = 'none';
+    }
+});
+
+    row.appendChild(card);
+            });
+        });
+        
+    });
+
+   document.querySelectorAll('.scroll-btn').forEach(function(btn) { 
+    btn.addEventListener('click', function() { const direction = btn.dataset.direction; 
+        const row = btn.closest('.scroll-wrapper').querySelector('.book-row'); 
+    if (row) { const scrollAmount = 200; row.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+
+
+   } }); }); 
+
+ const searchbar = document.getElementById('search-bar');
+const searchInput = document.getElementById('search');
+const resultofsearch = document.getElementById('results');
+
+
+function searchBooks() {
+  const input = searchInput.value.trim();
+  resultofsearch.innerHTML = "Searching...";
+  let found = false;
+
+  categories.forEach(function(category) {
+    const db = getDatabase();
+    get(ref(db, category)).then((snapshot) => {
+      const books = snapshot.val();
+      for (let key in books) {
+        const book = books[key];
+        if (book.Title && book.Title.toLowerCase().includes(input.toLowerCase())) {
+          if (!found) resultofsearch.innerHTML = "";
+          found = true;
+          resultofsearch.innerHTML += `
+            <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+              <h3>${book.Title}</h3>
+              <p>Author: ${book.Author}</p>
+              <p>Category: ${category}</p>
+              <img src="${book.Image}" style="max-width:60px; object-fit: cover; border-radius: 2px; margin-right: 10px;">
+            </div>`;
+        }
+      }
+      if (!found && resultofsearch.innerHTML === "Searching...") {
+        resultofsearch.innerHTML = "No book found.";
+      }
+    });
+  });
+}
+
+searchbar.addEventListener('click', searchBooks);
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    searchBooks();
+  }
+});
+  
+
+
+</script>
+
+</body>
+
+</html>

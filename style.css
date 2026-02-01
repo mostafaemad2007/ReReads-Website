@@ -1,0 +1,364 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    background-color: #97D2FE;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    background-color: #2E75B5;
+    box-sizing: border-box;
+    margin: 0;
+    box-shadow: cadetblue 0px 5px 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.icon{
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+
+}
+
+.buylist {
+    margin-top: 5px;
+    width: 60px;
+    height: 60px;
+
+}
+
+.accountphoto {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+
+}
+
+
+.title {
+    color: white;
+    font-size: 35px;
+    margin-left: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 20px;
+
+}
+
+#search {
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    outline: none;
+}
+
+.catigory-container {
+    width: 170px;
+    height: 720px;
+    background-color: #2E75B5;
+    padding: 10px;
+    box-shadow: cadetblue 0px 5px 10px;
+    float: left; 
+    position: fixed;
+    top: 100px;
+    left: 0;
+    z-index: 1000;
+    
+}
+
+.catigorytitle {
+    margin-top: 0%;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #ffffff;
+
+}
+
+.catigory-list {
+    list-style-type: disc; /* Use disc for bullets */
+    padding-left: 20px;
+    margin-left: 15px;
+}
+
+.catigory-list li {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.catigory-list li a {
+    text-decoration: none; 
+    color: #ffffff;
+
+}
+.category-button{
+    display:flex;
+    justify-content: space-evenly;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: #2E75B5;
+}
+
+.category-button:hover{
+    background-color: #1A5276;
+}
+
+.book-upload-section {
+    margin-top: 110px;
+    margin-left:200px;
+    height: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+}
+
+.upload-title { 
+    margin-top: 0;
+    font-weight: bold;
+    color: #2E75B5;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.upload-photo-area {
+    width: 200px; 
+    height: 250px; 
+    border: 2px dashed #cccccc;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #777777;
+    margin-bottom: 20px;
+    float: left; 
+    margin-right: 20px;
+}
+.upload-photo-area p {
+    margin-top: 80px;
+}
+
+
+.upload-details-area {
+    overflow: hidden;
+}
+
+.upload-details-area label {
+    display: block; /* Make labels block elements */
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.upload-details-area input[type="text"],
+.upload-details-area select,
+.upload-details-area textarea {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.upload-details-area textarea {
+    height: 80px; 
+    resize: vertical;
+}
+
+.submit-book-button {
+    background-color: #03c39a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    margin-top: 15px;
+    display: block;
+}
+.submit-book-button:hover {
+    background-color: #055242; 
+}
+
+
+.category-button{
+    display:flex;
+    justify-content: space-evenly;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: #2E75B5;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  height: 400px;
+  width: 270px;
+  padding: 1;
+  background: #2E75B5;
+  border: none;
+  align-items: center;
+  border-radius: 0.8rem;
+  border-width: 4px 4px 4px 4px;
+  margin:10px;
+  border-radius: 15px;
+}
+.card:hover {
+    box-shadow: 0 8px 32px 0 rgba(46,117,181,0.22), 0 4px 16px 0 rgba(0,0,0,0.13);
+    transform: translateY(-4px) scale(1.025);
+}
+
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.Book-Button {
+    text-align: center;
+    height: 58px;
+    width: 270px;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: #2E75B5;
+    border-color: black;
+    color: white;
+    font-size:20px;
+    background-color: #2E75B5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+
+}
+
+.Book-Button:hover {
+    background-color: #1A5276;
+}
+
+.row-of-books{
+    height: 450px;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+}
+
+.books-container{
+    margin-top: 120px;
+    margin-left:200px;
+    height: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-name-div{
+    margin-top: 0;
+    font-weight: bold;
+    color: #2E75B5;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+
+
+
+.book-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.book-modal-content {
+  background-color: #fff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: center;
+}
+
+.book-modal-content img {
+  width: 120px;
+  height: 180px;
+  border-radius: 8px;
+  margin: 0 auto 12px;
+  display: block;
+}
+
+.book-modal-content h2 {
+  margin: 12px 0 8px;
+}
+
+.book-modal-content p {
+  margin: 6px 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px; right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#modal-book-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 130px;
+    padding: 2px 16px; 
+    background: #f6d365;
+    color: #222;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    width: 100px; 
+    height: 30px;
+    
+}
+

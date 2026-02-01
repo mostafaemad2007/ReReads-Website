@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ReReads</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="homepage.html"><img src="icon.png" class="icon"></a>
+            <a href="homepage.html"style="text-decoration:none;"><h1 class="title">ReReads</h1></a>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for a book...">
+            </div>
+            <a href="#"><img src="list.png" alt="list" class="buylist"></a>
+            <img src="acc.png" alt="acc" class="accountphoto"></a>
+        </div>
+
+    </header>
+
+    <div class="catigory-container">
+
+        <h2 class="catigorytitle">Categories</h2>
+        <ul class="catigory-list">
+            <li> <button class="category-button" id="Biography">Biography</button> </li>
+            <li> <button class="category-button" id="Children">Children</button> </li>
+            <li> <button class="category-button" id="Fantasy">Fantasy</button> </li>
+            <li> <button class="category-button" id="Fiction">Fiction</button> </li>
+            <li> <button class="category-button" id="Health">Health</button> </li>
+            <li> <button class="category-button" id="History">History</button> </li>
+            <li> <button class="category-button" id="Mystery">Mystery</button> </li>
+            <li> <button class="category-button" id="Non-Fiction">Non-Fiction</button> </li>
+            <li> <button class="category-button" id="Romance">Romance</button> </li>
+            <li> <button class="category-button" id="Science">Science</button> </li>
+            <li> <button class="category-button" id="Thriller">Thriller</button> </li>
+            <li> <button class="category-button" id="Travel">Travel</button> </li>
+        </ul>
+
+    </div>
+    <div class="books-container" id="BooksOfCategory">
+        <div class='category-name-div'>History</div>
+    </div>
+
+    <div id="book-modal" class="book-modal">
+  <div class="book-modal-content">
+    <button id="close-book-modal" class="close-button">&times;</button>
+    <img id="modal-book-img" src="" alt="Book Image" />
+    <h2 id="modal-book-title"></h2>
+    <p id="modal-book-price"></p>
+    <p><strong>Author:</strong> <span id="modal-book-author"></span></p>
+    <p><strong>Description:</strong> <span id="modal-book-description"></span></p>
+    <p><strong>Contact:</strong> <span id="modal-book-contact"></span></p>
+  </div>
+</div>
+
+</body>
+<script type="module">
+    import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js"
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js"
+    const firebaseConfig = {
+        apiKey: "AIzaSyCiD009fYi_pez3e9HSs23NOuQ-U5dYcOI",
+        authDomain: "cfe-final-project.firebaseapp.com",
+        databaseURL: "https://cfe-final-project-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "cfe-final-project",
+        storageBucket: "cfe-final-project.firebasestorage.app",
+        messagingSenderId: "424095338587",
+        appId: "1:424095338587:web:10e94a92b55c2bbf2a2f7e",
+        measurementId: "G-883F1EHM6P"
+    };
+    const app = initializeApp(firebaseConfig);
+    const pageCategory = "History";
+    const db = getDatabase(app);
+    let booksList = [];
+    let loadedImages = 0;
+    let theFullData = [];
+    onValue(ref(db, pageCategory + '/'), (snapData) => {
+        Object.keys(snapData.val()).forEach(function (item) {
+            booksList.push(String(item));
+        });
+        booksList.forEach(function (theBook) {
+            onValue(ref(db, pageCategory + '/' + theBook + '/Image/'), (snapData) => {
+                const theImageURL = String(snapData.val());
+                theFullData.push({ title: theBook, ImageURL: theImageURL });
+                loadedImages++;
+            })
+        });
+        if (loadedImages == booksList.length)
+            buildingFunction();
+    });
+
+    const FictionButton = document.getElementById('Fiction');
+    FictionButton.addEventListener('click', (e) => {
+        window.location.href = "Fiction.html";
+    });
+
+    const NonFictionButton = document.getElementById('Non-Fiction');
+    NonFictionButton.addEventListener('click', (e) => {
+        window.location.href = "NonFiction.html";
+    });
+
+    const ScienceButton = document.getElementById('Science');
+    ScienceButton.addEventListener('click', (e) => {
+        window.location.href = "Science.html";
+    });
+
+    const HistoryButton = document.getElementById('History');
+    HistoryButton.addEventListener('click', (e) => {
+        window.location.href = "History.html";
+    });
+
+    const BiographyButton = document.getElementById('Biography');
+    BiographyButton.addEventListener('click', (e) => {
+        window.location.href = "Biography.html";
+    });
+
+    const FantasyButton = document.getElementById('Fantasy');
+    FantasyButton.addEventListener('click', (e) => {
+        window.location.href = "Fantasy.html";
+    });
+
+    const MysteryButton = document.getElementById('Mystery');
+    MysteryButton.addEventListener('click', (e) => {
+        window.location.href = "Mystery.html";
+    });
+
+    const RomanceButton = document.getElementById('Romance');
+    RomanceButton.addEventListener('click', (e) => {
+        window.location.href = "Romance.html";
+    });
+
+    const ThrillerButton = document.getElementById('Thriller');
+    ThrillerButton.addEventListener('click', (e) => {
+        window.location.href = "Thriller.html";
+    });
+
+    const HealthButton = document.getElementById('Health');
+    HealthButton.addEventListener('click', (e) => {
+        window.location.href = "Health.html";
+    });
+
+    const TravelButton = document.getElementById('Travel');
+    TravelButton.addEventListener('click', (e) => {
+        window.location.href = "Travel.html";
+    });
+
+    const ChildrenButton = document.getElementById('Children');
+    ChildrenButton.addEventListener('click', (e) => {
+        window.location.href = "Children.html";
+    });
+
+    function buildingFunction() {
+        const itemList = document.getElementById('BooksOfCategory');
+        let counter = 0;
+        let booksPerRow = ((window.innerWidth-720)/170);
+        let theBooksRow = document.createElement('row');
+        theBooksRow.className = 'row-of-books'
+        theFullData.forEach(function (theBook) {
+            let itemDiv = document.createElement('div');
+            itemDiv.className = 'card';
+            const BookPicture = document.createElement('img');
+            BookPicture.src = `${theBook.ImageURL}`;
+            BookPicture.height = 340;
+            BookPicture.width = 300;
+            BookPicture.alt = "Book Picture";
+            BookPicture.style = "width:100%";
+            const BookTitle = document.createElement('button');
+            BookTitle.textContent = `${theBook.title}`;
+            BookTitle.className = 'Book-Button';
+            itemDiv.appendChild(BookPicture);
+            itemDiv.appendChild(BookTitle);
+            theBooksRow.appendChild(itemDiv);
+            counter++;
+            if (counter > booksPerRow-1) {
+                counter = 0;
+                itemList.appendChild(theBooksRow);
+                theBooksRow = document.createElement('row');
+                theBooksRow.className = 'row-of-books';
+            }
+        });
+        if (counter > 0) {
+            counter = 0;
+            itemList.appendChild(theBooksRow);
+            theBooksRow = document.createElement('row');
+        }
+
+    };
+    
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.classList.contains('Book-Button')) {
+            const bookTitle = e.target.textContent;
+            
+            const bookData = theFullData.find(b => b.title === bookTitle) || {};
+        
+            get(ref(db, pageCategory + '/' + bookTitle)).then((snapshot) => {
+                const data = snapshot.val() || {};
+                const modal = document.getElementById('book-modal');
+                document.getElementById('modal-book-img').src = data.Image || bookData.ImageURL || '';
+                document.getElementById('modal-book-title').textContent = bookTitle;
+                document.getElementById('modal-book-price').textContent = data.Price ? data.Price + ' L.E' : '';
+                document.getElementById('modal-book-author').textContent = data.Author || 'Unknown';
+                document.getElementById('modal-book-description').textContent = data.Description || 'No description available.';
+                document.getElementById('modal-book-contact').textContent = data.Contact || 'N/A';
+                modal.style.display = 'flex';
+            });
+        }
+    });
+    document.getElementById('close-book-modal').addEventListener('click', function () {
+        document.getElementById('book-modal').style.display = 'none';
+    });
+
+</script>
+
+</html>

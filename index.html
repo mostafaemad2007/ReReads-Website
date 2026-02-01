@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ReReads</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="homepage.html"><img src="icon.png" class="icon"></a>
+            <a href="homepage.html"style="text-decoration:none;"><h1 class="title">ReReads</h1></a>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for a book...">
+            </div>
+            <a href="#"><img src="list.png" alt="list" class="buylist"></a>
+            <img src="acc.png" alt="acc" class="accountphoto"></a>
+        </div>
+
+    </header>
+
+    <div class="catigory-container">
+
+        <h2 class="catigorytitle">Categories</h2>
+        <ul class="catigory-list">
+            <li> <button class="category-button" id="Biography">Biography</button> </li>
+            <li> <button class="category-button" id="Children">Children</button> </li>
+            <li> <button class="category-button" id="Fantasy">Fantasy</button> </li>
+            <li> <button class="category-button" id="Fiction">Fiction</button> </li>
+            <li> <button class="category-button" id="Health">Health</button> </li>
+            <li> <button class="category-button" id="History">History</button> </li>
+            <li> <button class="category-button" id="Mystery">Mystery</button> </li>
+            <li> <button class="category-button" id="Non-Fiction">Non-Fiction</button> </li>
+            <li> <button class="category-button" id="Romance">Romance</button> </li>
+            <li> <button class="category-button" id="Science">Science</button> </li>
+            <li> <button class="category-button" id="Thriller">Thriller</button> </li>
+            <li> <button class="category-button" id="Travel">Travel</button> </li>
+        </ul>
+
+    </div>
+
+    <form id="dataForm">
+        <div class="book-upload-section">
+            <h2 class="upload-title">Upload Your Book</h2>
+            <div class="upload-details-area">
+                <div>
+                    <label for="bookTitleInput">Book Title:</label>
+                    <input type="text" id="bookTitleInput" name="bookTitleInput" required>
+                </div>
+                <div>
+                    <label for="bookAuthorInput">Author:</label>
+                    <input type="text" id="bookAuthorInput" name="bookAuthorInput" required>
+                </div>
+                <div>
+                    <label for="bookCategorySelect">Category:</label>
+                    <select id="bookCategorySelect" name="bookCategorySelect" required>
+                        <option value="">Select Category...</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Children">Children</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Health">Health</option>
+                        <option value="History">History</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Science">Science</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Travel">Travel</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="bookDescriptionInput">Description:</label>
+                    <textarea id="bookDescriptionInput" name="bookDescriptionInput" required></textarea>
+                </div>
+                <div>
+                    <label for="imageInput">Image URL:</label>
+                    <input type="text" id="imageInput" name="imageInput" required>
+                </div>
+                <div>
+                    <label for="Contactnumber">Contact (WhatsApp Number):</label>
+                    <input type="tel" id="Contactnumber" name="Contactnumber" required>
+                </div>
+                <div>
+                    <label for="AgeOfReaders">Target Reader Age:</label>
+                    <input type="text" id="AgeOfReaders" name="AgeOfReaders" required>
+                </div>
+                <div>
+                    <label for="Price">Price:</label>
+                    <input type="text" id="Price" name="Price" placeholder="e.g., Free, $10.." required>
+                </div>
+                <button type="button" class="submit-book-button">Submit Book</button>
+            </div>
+        </div>
+    </form>
+
+    
+
+    <script type="module">
+        import {getDatabase,ref,set} from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js"
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js"
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiD009fYi_pez3e9HSs23NOuQ-U5dYcOI",
+            authDomain: "cfe-final-project.firebaseapp.com",
+            databaseURL: "https://cfe-final-project-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "cfe-final-project",
+            storageBucket: "cfe-final-project.firebasestorage.app",
+            messagingSenderId: "424095338587",
+            appId: "1:424095338587:web:10e94a92b55c2bbf2a2f7e",
+            measurementId: "G-883F1EHM6P"
+        };
+
+
+        const app=initializeApp(firebaseConfig);
+
+        const bookForm = document.getElementById('dataForm');
+        const bookTitleInput = document.getElementById('bookTitleInput');
+        const bookAuthorInput = document.getElementById('bookAuthorInput');
+        const bookCategorySelect = document.getElementById('bookCategorySelect');
+        const bookDescriptionInput = document.getElementById('bookDescriptionInput');
+        const bookImageURL = document.getElementById('imageInput');
+        const contactNumberInput = document.getElementById('Contactnumber');
+        const ageOfReadersInput = document.getElementById('AgeOfReaders');
+        const priceInput = document.getElementById('Price');
+        const submitBookButton = document.querySelector('.submit-book-button');
+        const uploadMessageElement = document.getElementById('uploadMessage');
+
+
+
+        submitBookButton.addEventListener('click', (e) => {
+            console.log("Submitted");
+            const title = bookTitleInput.value.trim();
+            const author = bookAuthorInput.value.trim();
+            const category = bookCategorySelect.value;
+            const description = bookDescriptionInput.value.trim();
+            const contact = contactNumberInput.value.trim();
+            const ageOfReaders = String(ageOfReadersInput.value.trim()) + "+";
+            const price = priceInput.value.trim();
+            const theImageURL = bookImageURL.value.trim();
+
+            const db = getDatabase(app);
+            console.log("Database is read");
+            set(ref(db,category + '/' + title),{
+                Age: ageOfReaders,
+                Author: author,
+                Contact: contact,
+                Description: description,
+                Image: theImageURL,
+                Price: price,
+                Title: title,
+            });
+            console.log("submitted successfully");
+            alert("Submitted Successfully");
+        });
+
+
+
+
+        const FictionButton = document.getElementById('Fiction');
+        FictionButton.addEventListener('click', (e) => {
+            window.location.href = "Fiction.html";
+        });
+
+        const NonFictionButton = document.getElementById('Non-Fiction');
+        NonFictionButton.addEventListener('click', (e) => {
+            window.location.href = "NonFiction.html";
+        });
+
+        const ScienceButton = document.getElementById('Science');
+        ScienceButton.addEventListener('click', (e) => {
+            window.location.href = "Science.html";
+        });
+
+        const HistoryButton = document.getElementById('History');
+        HistoryButton.addEventListener('click', (e) => {
+            window.location.href = "History.html";
+        });
+
+        const BiographyButton = document.getElementById('Biography');
+        BiographyButton.addEventListener('click', (e) => {
+            window.location.href = "Biography.html";
+        });
+
+        const FantasyButton = document.getElementById('Fantasy');
+        FantasyButton.addEventListener('click', (e) => {
+            window.location.href = "Fantasy.html";
+        });
+
+        const MysteryButton = document.getElementById('Mystery');
+        MysteryButton.addEventListener('click', (e) => {
+            window.location.href = "Mystery.html";
+        });
+
+        const RomanceButton = document.getElementById('Romance');
+        RomanceButton.addEventListener('click', (e) => {
+            window.location.href = "Romance.html";
+        });
+
+        const ThrillerButton = document.getElementById('Thriller');
+        ThrillerButton.addEventListener('click', (e) => {
+            window.location.href = "Thriller.html";
+        });
+
+        const HealthButton = document.getElementById('Health');
+        HealthButton.addEventListener('click', (e) => {
+            window.location.href = "Health.html";
+        });
+
+        const TravelButton = document.getElementById('Travel');
+        TravelButton.addEventListener('click', (e) => {
+            window.location.href = "Travel.html";
+        });
+
+        const ChildrenButton = document.getElementById('Children');
+        ChildrenButton.addEventListener('click', (e) => {
+            window.location.href = "Children.html";
+        });
+
+    </script>
+</body>
+
+</html>
